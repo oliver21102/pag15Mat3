@@ -10,7 +10,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/luz.jpg?1498514263767", id:"luz"}
+		{src:"images/luz.jpg?1498514795563", id:"luz"}
 	]
 };
 
@@ -1288,7 +1288,6 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 				   }
 				root.flecha1b.visible=true;
 			    ocultarVerificar();
-				
 			}else{
 				 setNumero(root.txt1);
 				 setNumero(root.txt2);
@@ -1314,7 +1313,6 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 			  if((puntero)>=(respuestasA.length)){
 				  return ;
 			  }
-			
 			pasarSiguienteHora();
 			mostrarFlechaAtras();
 			colocarHoraInicial(); 
@@ -1326,7 +1324,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 		  setNumero(root.txt2);
 			
 		}
-		function  ocultarFlecha(){
+		function ocultarFlecha(){
 			root.flecha1b.visible=false;
 		}
 		 
@@ -1359,13 +1357,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 			imagenes[pos].y=409,65;
 		}
 		 
-		/*
-		stage.addEventListener("stagemousemove",fover);
-		function fover(event){
-			 root.punto.x=event.stageX;
-			 root.punto.y=event.stageY;
-		}
-		*/
+		 
 		
 		root.flecha1a.addEventListener("click",fflecha1a);
 		function fflecha1a(event){
@@ -1380,6 +1372,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 			return;
 			}
 		}
+		
 		
 		
 		function decrementarPuntero(){
