@@ -10,7 +10,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/luz.jpg?1498512569518", id:"luz"}
+		{src:"images/luz.jpg?1498514263767", id:"luz"}
 	]
 };
 
@@ -1381,6 +1381,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 			}
 		}
 		
+		
 		function decrementarPuntero(){
 			puntero=puntero>0?puntero-1:puntero;
 		}
@@ -1391,6 +1392,30 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 		 setTimeout(function(){
 			establecerColor(cuadros[punteroC],naranja);	
 			 },900); */
+		}
+		
+		root.a1.addEventListener("click",fa1);
+		root.a2.addEventListener("click",fa2);
+		root.txt1.addEventListener("click",fa1);
+		root.txt2.addEventListener("click",fa2);
+		
+		
+		function fa1(event){
+		 pintarTodosBlanco();
+			punteroC=0;
+			establecerColor(cuadros[punteroC],naranja);
+		}
+		
+		function fa2(event){
+			pintarTodosBlanco();
+			punteroC=1;
+			establecerColor(cuadros[punteroC],naranja);
+		}
+		
+		function pintarTodosBlanco(){
+			for(var i=0; i<cuadros.length; i++){
+			establecerColor(cuadros[i],blanco);	
+			}
 		}
 	}
 	this.frame_2 = function() {
