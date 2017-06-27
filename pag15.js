@@ -10,7 +10,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/luz.jpg?1498514795563", id:"luz"}
+		{src:"images/luz.jpg?1498569087884", id:"luz"}
 	]
 };
 
@@ -1278,7 +1278,6 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 		
 		root.verificar.addEventListener("click",fverificar);
 		function fverificar(event){ 
-		
 			var n1= getNumero(root.txt1);
 			var n2=getNumero(root.txt2);
 			if(parseInt(n1)==respuestasA[posiciones[puntero]-1] && parseInt(n2)==respuestasB[posiciones[puntero]-1]){
@@ -1288,6 +1287,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 				   }
 				root.flecha1b.visible=true;
 			    ocultarVerificar();
+			 createjs.Ticker.removeEventListener("tick", handleTick);	
 			}else{
 				 setNumero(root.txt1);
 				 setNumero(root.txt2);
@@ -1295,7 +1295,6 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 			   	establecerColor(cuadros[punteroC],naranja);
 			}
 		}
-		
 		
 		function mostrarMuyBien(){
 			root.gotoAndPlay(2);
@@ -1313,6 +1312,8 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 			  if((puntero)>=(respuestasA.length)){
 				  return ;
 			  }
+		createjs.Ticker.addEventListener("tick", handleTick);	
+			  c=0;
 			pasarSiguienteHora();
 			mostrarFlechaAtras();
 			colocarHoraInicial(); 
@@ -1322,8 +1323,8 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 		function colocarHoraInicial(){
 		  setNumero(root.txt1);
 		  setNumero(root.txt2);
-			
 		}
+		
 		function ocultarFlecha(){
 			root.flecha1b.visible=false;
 		}
@@ -1380,13 +1381,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 		}
 		
 		
-		function retardo(m){
-			/*
-		 setTimeout(function(){
-			establecerColor(cuadros[punteroC],naranja);	
-			 },900); */
-		}
-		
+		 
 		root.a1.addEventListener("click",fa1);
 		root.a2.addEventListener("click",fa2);
 		root.txt1.addEventListener("click",fa1);
@@ -1410,6 +1405,37 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,64,64);
 			establecerColor(cuadros[i],blanco);	
 			}
 		}
+		
+		
+		var c=0;
+		 createjs.Ticker.addEventListener("tick", handleTick);
+		 function handleTick(event) {
+		     c++;
+			 
+			 if(c<20){
+			 	establecerColor(cuadros[punteroC],naranja);	 
+			 }else{
+				 if(c<40){
+					 establecerColor(cuadros[punteroC],blanco);	 
+				 }else{
+					 if(c==40){
+						 c=0;
+					 }
+				 }
+				 
+		       }	 
+		    /*	 
+			 if(c<200){ 
+				 establecerColor(cuadros[punteroC],blanco);	
+				
+			 }else{
+				 if(c==200){
+					 c=0;
+				 }
+			 }
+			  */
+		    
+		 }
 	}
 	this.frame_2 = function() {
 		var root2=this;
